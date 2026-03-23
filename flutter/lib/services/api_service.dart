@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
   // ─── Change this to your deployed backend URL ─────────────────────────────
-  static const String baseUrl = 'http://127.0.0.1:8000'; // Android emulator
+  static const String baseUrl = 'https://connectpath-backend.onrender.com'; // Android emulator
   // static const String baseUrl = 'http://localhost:8000'; // iOS simulator
 
   String? _token;
