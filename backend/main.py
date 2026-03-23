@@ -47,7 +47,10 @@ app = FastAPI(title="Proximity Professional Network API", version="1.1")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://69c13aa3d4d6ff6f3bba649a--classy-kelpie-52a008.netlify.app",
+        "https://classy-kelpie-52a008.netlify.app",
+    ],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
