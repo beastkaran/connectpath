@@ -29,6 +29,12 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 24 hours for convenience
 # ─── Database ─────────────────────────────────────────────────────────────────
 engine       = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+# Auto-enable PostGIS extension
+from sqlalchemy import text
+with engine.connect() as conn:
+    conn.execute(text("CREATE EXTENSION IF NOT EXISTS postgis"))
+    conn.commit()
+
 Base.metadata.create_all(bind=engine)
 
 # ─── Security ─────────────────────────────────────────────────────────────────
