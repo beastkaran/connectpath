@@ -19,6 +19,9 @@ from models import UserStatus, ConnectionStatus, EventStatus
 
 # ─── Configuration ───────────────────────────────────────────────────────────
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@localhost/ppn_db")
+# Fix Render's postgres:// prefix
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 SECRET_KEY   = os.getenv("SECRET_KEY", "your-secret-key-change-in-production")
 ALGORITHM    = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 24 hours for convenience
